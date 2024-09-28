@@ -21,3 +21,29 @@ const initialAddress: UserState = {
   address: ''
 }
 
+export const createUserSlice: StateCreator<
+  UserSlice,
+  [["zustand/immer", never]],
+  [],
+  UserSlice
+> = (set) => ({
+  ...initialAddress,
+
+  setAddress: (address) => {
+    set((state) => {
+      state.address = address;
+    })
+  },
+
+  fetchUser: async () => {
+    await new Promise(resolve => setTimeout(() => {
+      set({
+        address: '',
+        userName: 'souradip2k4',
+        fullName: 'Souradip Saha',
+        age: 20,
+      });
+
+    }, 1000))
+  }
+})
