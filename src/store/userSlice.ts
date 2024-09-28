@@ -36,14 +36,12 @@ export const createUserSlice: StateCreator<
   },
 
   fetchUser: async () => {
-    await new Promise(resolve => setTimeout(() => {
-      set({
-        address: '',
-        userName: 'souradip2k4',
-        fullName: 'Souradip Saha',
-        age: 20,
-      });
-
-    }, 1000))
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    set({
+      address: '',
+      userName: 'souradip2k4',
+      fullName: 'Souradip Saha',
+      age: 20,
+    });
   }
 })
