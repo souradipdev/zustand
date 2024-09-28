@@ -23,7 +23,11 @@ const initialAddress: UserState = {
 
 export const createUserSlice: StateCreator<
   UserSlice,
-  [["zustand/immer", never]],
+  [
+    ["zustand/immer", never],
+    ["zustand/devtools", never],
+    ["zustand/persist", 'local-storage']
+  ],
   [],
   UserSlice
 > = (set) => ({
