@@ -1,13 +1,19 @@
 "use client"
-import Image from "next/image";
 import {useStore} from "@/store/store";
 import {useShallow} from "zustand/react/shallow";
 import User from "@/components/User";
 import Cart from "@/components/Cart";
 import {ProductData} from "@/lib/TestData";
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
 
 export default function Home() {
+  const {addProduct, cartProduct} = useStore(
+    useShallow((state) => ({
+      addProduct: state.addProduct,
+      cartProduct: state.products
+    }))
+  )
 
   return (
     <div className="w-full min-h-screen flex justify-center">
@@ -24,7 +30,7 @@ export default function Home() {
               <CardHeader>{product.title}</CardHeader>
               <CardContent>{product.price}$</CardContent>
               <CardFooter>
-
+                <Button >Add product</Button>
 
               </CardFooter>
             </Card>
