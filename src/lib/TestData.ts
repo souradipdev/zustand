@@ -1,6 +1,6 @@
 import {Product} from "@/types/cartProduct";
 
-export const PRODUCTS_DATA: Product[] = [
+export const ProductData: Product[] = [
   { id: '1', price: 1100, title: 'S24 Ultra' },
   { id: '2', price: 1000, title: 'iPhone 15' },
   { id: '3', price: 250, title: 'AirPods Pro 2' },

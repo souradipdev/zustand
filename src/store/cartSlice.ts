@@ -29,6 +29,7 @@ export const createCartSlice: StateCreator<
   [
     ["zustand/immer", never],
     ["zustand/devtools", never],
+    ["zustand/devtools", unknown],
     ["zustand/persist", unknown]
   ],
   [],

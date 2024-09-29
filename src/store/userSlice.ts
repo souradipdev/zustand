@@ -26,7 +26,8 @@ export const createUserSlice: StateCreator<
   [
     ["zustand/immer", never],
     ["zustand/devtools", never],
-    ["zustand/persist", unknown]
+    ["zustand/persist", unknown],
+    ["zustand/devtools", unknown],
   ],
   [],
   UserSlice
