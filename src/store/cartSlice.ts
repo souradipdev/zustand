@@ -1,8 +1,8 @@
 import {StateCreator, create} from "zustand";
 import {CartProduct} from "@/types/cartProduct";
-import {Product} from "@/types/product";
+import {Product} from "@/types/cartProduct";
 
-interface CartState {
+export interface CartState {
   products: Array<CartProduct>;
   total: number;
 }
@@ -25,11 +25,11 @@ const initialState: CartState = {
 };
 
 export const createCartSlice: StateCreator<
-  CartSlice,
+  CartState,
   [
     ["zustand/immer", never],
     ["zustand/devtools", never],
-    ["zustand/persist", 'local-storage']
+    ["zustand/persist", unknown]
   ],
   [],
   CartSlice

@@ -1,6 +1,6 @@
 import {StateCreator} from "zustand";
 
-interface UserState {
+export interface UserState {
   userName: string;
   fullName: string;
   age: number;
@@ -22,11 +22,11 @@ const initialAddress: UserState = {
 }
 
 export const createUserSlice: StateCreator<
-  UserSlice,
+  UserState,
   [
     ["zustand/immer", never],
     ["zustand/devtools", never],
-    ["zustand/persist", 'local-storage']
+    ["zustand/persist", unknown]
   ],
   [],
   UserSlice
