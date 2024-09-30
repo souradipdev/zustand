@@ -48,10 +48,15 @@ export const createCartSlice: StateCreator<
 
   decrementQty: (productId) => {
     set((state) => {
-      const findProduct = state.products.find(product => product.id === productId);
-      if (findProduct && findProduct.qty > 1) {
-        findProduct.qty -= 1;
+      const findIndex = state.products.findIndex(product => product.id === productId);
+      if (findIndex !== -1) {
+        if (state.products[findIndex].qty === 1) {
+          state.products.splice(findIndex, 1);
+        } else {
+          state.products[findIndex].qty -= 1;
+        }
       }
+
     });
   },
 
