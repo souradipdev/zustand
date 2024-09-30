@@ -4,7 +4,7 @@ import {Product} from "@/types/cartProduct";
 
 export interface CartState {
   products: Array<CartProduct>;
-  total: number;
+  totalPrice: number;
 }
 
 interface CartActions {
@@ -21,7 +21,7 @@ export type CartSlice = CartState & CartActions;
 
 const initialState: CartState = {
   products: [],
-  total: 0,
+  totalPrice: 0,
 };
 
 export const createCartSlice: StateCreator<
@@ -73,7 +73,7 @@ export const createCartSlice: StateCreator<
 
   setTotal: (total) => {
     set((state) => {
-      state.total = total;
+      state.totalPrice = total;
     });
   },
 
