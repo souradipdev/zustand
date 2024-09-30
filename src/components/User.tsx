@@ -10,7 +10,7 @@ import {UserIcon} from 'lucide-react';
 import {useShallow} from "zustand/react/shallow";
 
 function User() {
-  const {userName, fullName, age, address, fetchUser, setAddress} = useStore(
+  const {userName, fullName, age, fetchUser, setAddress} = useStore(
     useShallow(state => ({
       userName: state.userName,
       fullName: state.fullName,
@@ -26,18 +26,18 @@ function User() {
         await fetchUser()
       }
     )()
-  }, []);
+  }, [fetchUser]);
 
-  useEffect(() => {
-    console.log(address)
-  }, [address]);
+  /*  useEffect(() => {
+      console.log(address)
+    }, [address]);*/
 
   return (
     <div className={""}>
       <Popover>
-        <PopoverTrigger asChild className={""}>
-          <div className={"bg-accent p-1.5 rounded"}>
-            <UserIcon size={28} strokeWidth={2.5}/>
+        <PopoverTrigger asChild className={"mb-3"}>
+          <div className={"bg-accent p-1.5 rounded-md"}>
+            <UserIcon size={25} strokeWidth={2.5}/>
           </div>
         </PopoverTrigger>
 
@@ -45,6 +45,7 @@ function User() {
           <div className={"w-full justify-between flex gap-8"}>
             <p>{userName}</p>
             <p>{fullName}</p>
+            <p>{age}</p>
           </div>
 
           <p>Set your address</p>

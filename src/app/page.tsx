@@ -6,12 +6,13 @@ import Cart from "@/components/Cart";
 import {ProductData} from "@/lib/TestData";
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
+import ChangeQtyButtons from "@/components/ChangeQtyButtons";
 
 export default function Home() {
-  const {addProduct, cartProduct} = useStore(
+  const {addProduct, cartProducts} = useStore(
     useShallow((state) => ({
       addProduct: state.addProduct,
-      cartProduct: state.products
+      cartProducts: state.products
     }))
   )
 
@@ -30,7 +31,12 @@ export default function Home() {
               <CardHeader>{product.title}</CardHeader>
               <CardContent>{product.price}$</CardContent>
               <CardFooter>
-                <Button >Add product</Button>
+                {cartProducts.find(item => product.id === item.id) ?
+                  (<div>
+                    <ChangeQtyButtons id={product.id}/>
+                  </div>) : (
+                    <Button onClick={() => addProduct(product)}>Add product</Button>
+                  )}
 
               </CardFooter>
             </Card>
