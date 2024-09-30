@@ -47,20 +47,19 @@ function Cart() {
               <Card key={product.id}>
                 <div className={"w-full px-5 flex justify-between items-center"}>
                   <CardHeader>{product.title}</CardHeader>
-                  <Button variant={"destructive"} className={"p-1.5"}>
+                  <Button variant={"destructive"} className={"p-1.5"} onClick={() => removeProduct(product.id)}>
                     <Trash2/>
                   </Button>
                 </div>
                 <CardContent>{product.price}$</CardContent>
                 <CardFooter>
                   <ChangeQtyButtons id={product.id}/>
-
                 </CardFooter>
               </Card>
             ))}
           </div>
 
-          <div>{address}</div>
+          <div>Address: {address}</div>
           <div>{totalPrice}$</div>
         </PopoverContent>
       </Popover>

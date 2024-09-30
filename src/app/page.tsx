@@ -7,6 +7,7 @@ import {ProductData} from "@/lib/TestData";
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import ChangeQtyButtons from "@/components/ChangeQtyButtons";
+import {useEffect} from "react";
 
 export default function Home() {
   const {addProduct, cartProducts} = useStore(
